@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+// import { fetchPosts } from "../store/reducers/asyncActions/asyncGetPosts";
+import { fetchPosts } from "../store/toolkitStore/blogSlice";
+import { postsSelector } from "../store/selectors/postsSelectors";
 
 export const Blog = () => {
-  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
+  const posts = useSelector(postsSelector);
   const location = useLocation();
-  console.log(location);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then(setPosts);
+    dispatch(fetchPosts());
   }, []);
 
   return (

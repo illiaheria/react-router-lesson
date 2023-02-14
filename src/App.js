@@ -3,6 +3,7 @@ import { Home, Blog, About, NotFound, Post, Login } from "./pages";
 import { Layout } from "./components/Layout";
 import { RequireAuth } from "./hoc/RequireAuth";
 import { LoginProvider } from "./hoc/LoginProvider";
+import { Counter } from "./components/Counter";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="posts/:id" element={<Post />} />
           <Route path="login" element={<Login />} />
+          <Route path="counter" element={<Counter />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
