@@ -8,14 +8,14 @@ import { increment, decrement } from "../store/toolkitStore/toolkitReducer";
 
 import { counterSelector } from "../store/selectors/mainSelectors";
 
-export const Counter = () => {
+export const Counter: React.FC = () => {
   const count = useSelector(counterSelector);
   const dispatch = useDispatch();
 
-  const add = () => {
+  const add: VoidFunction = () => {
     dispatch(increment());
   };
-  const minus = () => {
+  const minus: VoidFunction = () => {
     dispatch(decrement());
   };
 

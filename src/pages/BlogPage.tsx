@@ -5,13 +5,14 @@ import { Link, useLocation } from "react-router-dom";
 import { fetchPosts } from "../store/toolkitStore/blogSlice";
 import { postsSelector } from "../store/selectors/postsSelectors";
 
-export const Blog = () => {
+export const Blog: React.FC = () => {
+  const [book, setBook] = useState("");
   const dispatch = useDispatch();
   const posts = useSelector(postsSelector);
   const location = useLocation();
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchPosts() as any);
   }, []);
 
   return (
